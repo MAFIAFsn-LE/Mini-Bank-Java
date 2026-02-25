@@ -3,11 +3,12 @@ void main() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Введите Код:");
     int youCode = scanner.nextInt();
-    int WorkCode = 1324;
+    int workCode = 1324;
 
-    if (youCode == WorkCode){
+
+    if (youCode == workCode){
         System.out.println("Доступ разрешон");
-    }else {
+    } else {
         System.out.println("Не верный пароль");
         System.out.println("Доступ запрешен");
         return;
@@ -21,7 +22,7 @@ void main() {
                 1. Проверка счета:\s
                 2. Внесение денег:\s
                 3. Снятие наличных:\s
-                4. Поменять пароль: (Бета тест)\s
+                4. Поменять пароль:\s
                 5. Выйти из Банка:""");
         int choice = scanner.nextInt();
 
@@ -33,30 +34,30 @@ void main() {
                 System.out.println("Сколько хотите внести денег?");
                 double deposit = scanner.nextDouble();
                 balance += deposit;
-                System.out.println("\n-----------------------------"+ "\nВы внесли: " + balance + "$ в ваш счет." + "\n-----------------------------");
+                System.out.println("\n-----------------------------"+ "\nВы внесли: " + deposit + "$ в ваш счет." + "\n-----------------------------");
                 break;
             case 3:
 
+                System.out.println("Сколько хотите снять денег?");
+                double cashWithdrawal = scanner.nextDouble();
+
                 if(balance == 0){
-                    System.out.println("Операция запрешена" + "\n С счёта нельзя снять ничего");
-                } else if (balance < scanner.nextInt()) {
-                    System.out.println("Сколько хотите снять денег?");
-                    balance = balance - scanner.nextDouble();
+                    System.out.println("Операция запрешена" + "\nС счёта нельзя снять ничего" + "\n");
+                } else if (balance < cashWithdrawal) {
                     System.out.println("Операция прекрашена, в счете нету таких денег");
                 } else {
-                    System.out.println("Сколько хотите снять денег?");
-                    balance = balance - scanner.nextDouble();
-                    System.out.println(balance + "$" + " снято с вашего счета.");
+                    balance -= cashWithdrawal;
+                    System.out.println(cashWithdrawal + "$" + " снято с вашего счета.");
                 }
                 break;
             case 4:
-                System.out.println("Ведите новый пароль");
-                WorkCode = scanner.nextInt();
+                System.out.println("Ведите новый пароль:");
+                workCode = scanner.nextInt();
                 System.out.println("Пароль изменён");
                 System.out.println("\n" + "Введите Код:");
                 youCode = scanner.nextInt();
 
-                if (youCode == WorkCode){
+                if (youCode == workCode){
                     System.out.println("Доступ разрешон" + "\n ");
                     break;
                 }else {
@@ -64,8 +65,6 @@ void main() {
                     System.out.println("Доступ запрешен");
                     return;
                 }
-
-
 
             case 5:
                 System.out.println("Завершение сеанса");
