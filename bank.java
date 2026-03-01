@@ -4,14 +4,33 @@ void main() {
     System.out.println("Введите Код:");
     int youCode = scanner.nextInt();
     int workCode = 1324;
+    int line = 4;
 
 
     if (youCode == workCode){
-        System.out.println("Доступ разрешон");
+        System.out.println("Доступ разрешен\n");
     } else {
-        System.out.println("Не верный пароль");
-        System.out.println("Доступ запрешен");
-        return;
+
+        for (int i = 0; i < 4; i++) {
+
+            System.out.println("Неправильный пароль\nПовторите попытку: ");
+            youCode = scanner.nextInt();
+
+            if (youCode == workCode) {
+                System.out.println("Доступ разрешен");
+                break;
+            } else {
+                if(line == 0){
+                    System.out.println("Попытки исчерпаны. Доступ заблокирован.");
+                    return;
+                }
+
+                line--;
+                System.out.println("Ошибка у вас остался " + line + " попыток");
+
+            }
+
+        }
     }
 
 
@@ -41,10 +60,8 @@ void main() {
                 System.out.println("Сколько хотите снять денег?");
                 double cashWithdrawal = scanner.nextDouble();
 
-                if(balance == 0){
-                    System.out.println("Операция запрешена" + "\nС счёта нельзя снять ничего" + "\n");
-                } else if (balance < cashWithdrawal) {
-                    System.out.println("Операция прекрашена, в счете нету таких денег");
+                if(balance < cashWithdrawal){
+                    System.out.println("Операция запрещена: Недостаточно средств" );
                 } else {
                     balance -= cashWithdrawal;
                     System.out.println(cashWithdrawal + "$" + " снято с вашего счета.");
@@ -58,7 +75,7 @@ void main() {
                 youCode = scanner.nextInt();
 
                 if (youCode == workCode){
-                    System.out.println("Доступ разрешон" + "\n ");
+                    System.out.println("Доступ разрешен " + "\n ");
                     break;
                 }else {
                     System.out.println("Не верный пароль");
@@ -69,26 +86,8 @@ void main() {
             case 5:
                 System.out.println("Завершение сеанса");
                 return;
+            default:
+                System.out.println("Нету такого пукта" + "\n");
         }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
