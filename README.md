@@ -1,8 +1,9 @@
 # Mini-Bank-Java
 
-Mini-Bank console application in Java. Functions: balance, top-up, withdrawal, PIN code change. Languages (KG/RU/EN) under development.
-Top-up and withdrawal are also under development, please do not enter numbers with floating points(1.5 or 1.31), I have not finished working on them yet.
+Mini-Bank console application in Java. Functions: balance, top-up, withdrawal, PIN code change, and number of attempts.
+Note: When topping up an amount in cents (0.1), enter 0.1.
 
-Консольное приложение Mini-Bank на Java. Функции: баланс, пополнение, снятие, смена PIN-кода. Языки (KG/RU/EN) в разработке.
-Пополнение также снятие в изменении, пожалуйста не ведите цифры с плавающей точкой(1.5 или 1.31), я ещё не доработал их.
+Консольное приложение Mini-Bank на Java. Функции: баланс, пополнение, снятие, смена PIN-кода, также количество попыток.
+Примечание: При пополение суммы в центах(0.1) то ведите 0,1.
+
 
